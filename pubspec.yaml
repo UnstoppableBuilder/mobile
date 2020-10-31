@@ -17,9 +17,9 @@ dependencies:
   animations: 1.1.2
   intl: 0.16.1
   http: 0.12.2
-  firebase_core: 0.5.0+1
-  firebase_core_web: 0.2.0
-  firebase_crashlytics: 0.1.4+1
+  # firebase_core: 0.5.0+1
+  # firebase_core_web: 0.2.0
+  # firebase_crashlytics: 0.1.4+1
   html: 0.14.0+3
   share: 0.6.5
   mobx: ^1.2.1+2
@@ -34,13 +34,13 @@ dependencies:
   flutter_staggered_grid_view: 0.3.2
   flutter_staggered_animations: 0.1.2
 
-  google_sign_in: 4.5.3
+  # google_sign_in: 4.5.3
   geolocator: 5.3.2+2
   geocoder: 0.2.1
-  google_maps_flutter: 0.5.21+3
-  google_maps_flutter_web: 0.1.0+2
+  # google_maps_flutter: 0.5.21+3
+  # google_maps_flutter_web: 0.1.0+2
   clustering_google_maps: 0.1.2
-  razorpay_flutter: 1.2.2
+  #razorpay_flutter: 1.2.2
   signature: 3.2.0
   liquid_swipe: 1.5.0
   lipsum: 1.0.1
@@ -48,15 +48,15 @@ dependencies:
   clippy_flutter: 1.1.1
   flutter_tags: ^0.4.8
   image_picker_gallery_camera: 0.1.6
-  video_player: 0.10.11+2
+  # video_player: 0.10.11+2
   charts_flutter: ^0.9.0
   flutter_reaction_button: ^1.0.1
-  lottie: ^0.6.0
+  # lottie: ^0.6.0
   showcaseview: ^0.1.6
   date_utils: ^0.1.0+3
   cached_network_image: ^2.3.1
   local_auth: ^0.6.3+1
-  admob_flutter: 1.0.0
+  # admob_flutter: 1.0.0
 
 dev_dependencies:
   flutter_test:
@@ -64,3 +64,27 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  assets:
+    - images/theme1/
+
+  fonts:
+    - family: Andina
+      fonts:
+        - asset: fonts/andina.ttf
+
+    - family: Regular
+      fonts:
+        - asset: fonts/googlesansregular.ttf
+
+    - family: Medium
+      fonts:
+        - asset: fonts/googlesansmedium.ttf
+
+    - family: Semibold
+      fonts:
+        - asset: fonts/googlesansmedium.ttf
+
+    - family: Bold
+      fonts:
+        - asset: fonts/googlesansebold.ttf

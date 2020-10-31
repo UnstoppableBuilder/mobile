@@ -1,12 +1,11 @@
 //region imports
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:nb_utils/nb_utils.dart';
-import 'package:ub/main/screens/AppSplashScreen.dart';
 import 'package:ub/main/store/AppStore.dart';
 import 'package:ub/main/utils/AppTheme.dart';
-import 'package:ub/routes.dart';
+import 'package:ub/theme1/screen/T1Signup.dart';
+import 'package:ub/theme1/screen/T1WalkThrough.dart';
 
 import 'main/utils/AppConstant.dart';
 import 'main/utils/AppWidget.dart';
@@ -19,8 +18,6 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   appStore.toggleDarkMode(value: await getBool(isDarkModeOnPref));
-
-  FlutterError.onError = Crashlytics.instance.recordFlutterError;
 
   runApp(MyApp());
 }
@@ -35,9 +32,9 @@ class MyApp extends StatelessWidget {
             Locale(appStore.selectedLanguage),
         locale: Locale(appStore.selectedLanguage),
         supportedLocales: [Locale('en', '')],
-        routes: routes(),
+        //routes: routes(),
         title: '$mainAppName${!isMobile ? ' ${platformName()}' : ''}',
-        home: AppSplashScreen(),
+        home: T1Signup(),
         theme: !appStore.isDarkModeOn
             ? AppThemeData.lightTheme
             : AppThemeData.darkTheme,

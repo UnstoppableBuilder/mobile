@@ -1,11 +1,10 @@
-import 'package:admob_flutter/admob_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:package_info/package_info.dart';
+import 'package:share/share.dart';
 import 'package:ub/main/utils/AppColors.dart';
 import 'package:ub/main/utils/AppConstant.dart';
 import 'package:ub/main/utils/AppWidget.dart';
-import 'package:share/share.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../main.dart';
@@ -18,17 +17,13 @@ class SettingScreen extends StatefulWidget {
 }
 
 class SettingScreenState extends State<SettingScreen> {
-  AdmobInterstitial interstitialAd;
-
   @override
   void initState() {
     super.initState();
     init();
   }
 
-  init() async {
-    interstitialAd = await showInterstitialAd();
-  }
+  init() async {}
 
   @override
   void setState(fn) {
@@ -38,11 +33,6 @@ class SettingScreenState extends State<SettingScreen> {
   @override
   void dispose() async {
     super.dispose();
-
-    if (await interstitialAd?.isLoaded) {
-      interstitialAd?.show();
-      print('Loading Successfully');
-    }
   }
 
   @override

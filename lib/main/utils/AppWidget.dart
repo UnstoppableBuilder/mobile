@@ -1,12 +1,9 @@
 import 'dart:io';
 
-import 'package:admob_flutter/admob_flutter.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:clustering_google_maps/clustering_google_maps.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:ub/main.dart';
@@ -303,24 +300,8 @@ class AdMobAdWidgetState extends State<AdMobAdWidget> {
       height: 60,
       width: context.width(),
       alignment: Alignment.center,
-      child: isMobile
-          ? AdmobBanner(
-              adUnitId: getBannerAdUnitId(),
-              adSize: AdmobBannerSize.BANNER,
-            )
-          : SizedBox(),
     );
   }
-}
-
-Future<AdmobInterstitial> showInterstitialAd() async {
-  AdmobInterstitial interstitialAd = AdmobInterstitial(
-    adUnitId: getInterstitialAdUnitId(),
-    listener: (AdmobAdEvent event, Map<String, dynamic> args) {},
-  );
-  interstitialAd.load();
-
-  return interstitialAd;
 }
 
 class SBehavior extends ScrollBehavior {
