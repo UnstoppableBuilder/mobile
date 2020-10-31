@@ -1,4 +1,4 @@
-const mainAppName = 'ProKit Flutter';
+const mainAppName = 'Unstoppable Builder';
 
 const fontRegular = 'Regular';
 const fontMedium = 'Medium';

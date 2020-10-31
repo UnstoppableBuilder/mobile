@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ub/main/utils/AppWidget.dart';
 import 'package:ub/main/utils/dots_indicator/dots_indicator.dart';
 import 'package:ub/views/utils/Colors.dart';
@@ -62,37 +63,58 @@ class IntroScreenState extends State<IntroScreen> {
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
+                  SizedBox(height: 30),
                   DotsIndicator(
-                    dotsCount: 3,
+                    dotsCount: 4,
                     position: currentPage,
                     decorator: DotsDecorator(
                         size: const Size.square(5.0),
                         activeSize: const Size.square(8.0),
                         color: t1_view_color,
-                        activeColor: t1_colorPrimary),
+                        activeColor: t1_colorAccent),
                   ),
                   SizedBox(height: height * 0.07),
-                  GestureDetector(
-                    onTap: () => widget.skipPage(context),
-                    child: Container(
-                      alignment: Alignment.center,
-                      height: 80,
-                      decoration: BoxDecoration(
-                          color: t1_colorPrimary, shape: BoxShape.circle),
-                      child: Text("Пропустить",
-                          style: TextStyle(
-                              color: t1_white, fontSize: textSizeSmall)),
-                      padding: EdgeInsets.all(24),
-                    ),
-                  ),
-                  SizedBox(height: 10),
                   Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[]),
-                  Image.asset(t1_walk_bottom,
-                      width: width, height: height * 0.12, fit: BoxFit.fill),
+                  SvgPicture.asset(
+                    "images/onboarding_bottom.svg",
+                    width: MediaQuery.of(context).size.width,
+                  ),
                 ],
               ),
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const SizedBox(
+                  height: 35,
+                ),
+                Row(
+                  children: [
+                    GestureDetector(
+                      onTap: () => widget.skipPage(context),
+                      child: Container(
+                        height: 20,
+                        child: Text("Пропустить",
+                            style: TextStyle(
+                                //color: t1_colorPrimary, // t1_colorPrimary,
+                                fontSize: textSizeSMedium)),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 15,
+                    )
+                  ],
+                  mainAxisAlignment: MainAxisAlignment.end,
+                ),
+                SvgPicture.asset(
+                  "images/onboarding_top.svg",
+                  //color: t1_colorPrimary,
+                  height: 199,
+                ),
+              ],
             ),
           ],
         ),
@@ -114,6 +136,11 @@ void info() {
       Image.asset(t1_walk_top, width: 40, height: 40);
       break;
     case 2:
+      Container(
+          margin: new EdgeInsets.fromLTRB(30, 0, 0, 0),
+          child: Image.asset(t1_walk_top, width: 40, height: 40));
+      break;
+    case 3:
       Container(
           margin: new EdgeInsets.fromLTRB(30, 0, 0, 0),
           child: Image.asset(t1_walk_top, width: 40, height: 40));
