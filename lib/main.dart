@@ -20,6 +20,7 @@ void main() async {
 
   appStore.toggleDarkMode(value: await getBool(isDarkModeOnPref));
 
+void main() {
   runApp(MyApp());
 }
 
