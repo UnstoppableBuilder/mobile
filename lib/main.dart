@@ -4,8 +4,8 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:ub/main/store/AppStore.dart';
 import 'package:ub/main/utils/AppTheme.dart';
-import 'package:ub/theme1/screen/T1Signup.dart';
-import 'package:ub/theme1/screen/T1WalkThrough.dart';
+import 'package:ub/views/screen/Signup.dart';
+import 'package:ub/views/screen/WalkThrough.dart';
 
 import 'main/utils/AppConstant.dart';
 import 'main/utils/AppWidget.dart';

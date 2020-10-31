@@ -3,13 +3,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:ub/main/utils/AppWidget.dart';
-import 'package:ub/theme1/screen/T1Listing.dart';
-import 'package:ub/theme1/utils/T1Colors.dart';
-import 'package:ub/theme1/utils/T1Constant.dart';
-import 'package:ub/theme1/utils/T1DataGenerator.dart';
-import 'package:ub/theme1/utils/T1Images.dart';
-import 'package:ub/theme1/utils/T1Strings.dart';
-import 'package:ub/theme1/utils/T1Widget.dart';
+import 'package:ub/views/screen/Listing.dart';
+import 'package:ub/views/utils/T1Colors.dart';
+import 'package:ub/views/utils/T1Constant.dart';
+import 'package:ub/views/utils/T1DataGenerator.dart';
+import 'package:ub/views/utils/T1Images.dart';
+import 'package:ub/views/utils/T1Strings.dart';
+import 'package:ub/views/utils/T1Widget.dart';
 
 import '../../main.dart';
 

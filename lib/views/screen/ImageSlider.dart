@@ -5,9 +5,9 @@ import 'package:nb_utils/nb_utils.dart';
 import 'package:ub/main/utils/AppWidget.dart';
 import 'package:ub/main/utils/dots_indicator/src/dots_decorator.dart';
 import 'package:ub/main/utils/dots_indicator/src/dots_indicator.dart';
-import 'package:ub/theme1/utils/T1Colors.dart';
-import 'package:ub/theme1/utils/T1Images.dart';
-import 'package:ub/theme1/utils/T1Strings.dart';
+import 'package:ub/views/utils/T1Colors.dart';
+import 'package:ub/views/utils/T1Images.dart';
+import 'package:ub/views/utils/T1Strings.dart';
 
 import '../../main.dart';
 

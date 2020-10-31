@@ -1,5 +1,5 @@
-import 'package:ub/theme1/model/T1_model.dart';
-import 'package:ub/theme1/utils/T1Images.dart';
+import 'package:ub/views/model/model.dart';
+import 'package:ub/views/utils/T1Images.dart';
 
 List<T1Model> getListings() {
   List<T1Model> list = List<T1Model>();

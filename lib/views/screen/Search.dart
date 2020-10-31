@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:ub/main/utils/AppWidget.dart';
-import 'package:ub/theme1/utils/T1Strings.dart';
-import 'package:ub/theme1/utils/T1Widget.dart';
+import 'package:ub/views/utils/T1Strings.dart';
+import 'package:ub/views/utils/T1Widget.dart';
 
 import '../../main.dart';
 

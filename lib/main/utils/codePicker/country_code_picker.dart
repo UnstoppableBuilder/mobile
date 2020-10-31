@@ -2,7 +2,7 @@
 // import 'package:flutter/material.dart';
 // import 'package:ub/main/utils/AppWidget.dart';
 // import 'package:ub/main/utils/codePicker/selection_dialog.dart';
-// import 'package:ub/theme12/utils/t12_colors.dart';
+// import 'package:ub/views2/utils/t12_colors.dart';
 
 // import '../../../main.dart';
 // import 'country_code.dart';

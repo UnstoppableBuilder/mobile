@@ -1,7 +1,7 @@
 // import 'package:cached_network_image/cached_network_image.dart';
 // import 'package:flutter/material.dart';
 // import 'package:ub/main/utils/AppWidget.dart';
-// import 'package:ub/theme12/utils/t12_colors.dart';
+// import 'package:ub/views2/utils/t12_colors.dart';
 
 // import '../AppConstant.dart';
 // import 'country_code.dart';
