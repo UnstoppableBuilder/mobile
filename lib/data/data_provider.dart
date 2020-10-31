@@ -11,8 +11,14 @@ class DataProvider {
   Future<Map<String, dynamic>> logInWithPhoneAndCode(
       {String phone, String code}) async {
     final fullUrl = '$url/api/token';
-    Response response = await Dio()
-        .post(fullUrl, data: jsonEncode({'phone': phone, 'code': code}));
+    Response response = await Dio().post(fullUrl,
+        data: jsonEncode(
+          {'phone': phone, 'code': code},
+        ),
+        options: Options(headers: {
+          'x-mock-response-name': 'signup',
+          'Content-Type': 'application/json'
+        }));
     if (response.statusCode == 200) {
       return response.data;
     } else {
@@ -20,20 +26,23 @@ class DataProvider {
     }
   }
 
-  Future<int> signUp(
-      {String phone,
-      String code,
-      String firstName,
-      String lastName,
-      int specializationId}) async {
+  Future<int> signUp({
+    String phone,
+    String code,
+    String firstName,
+    String lastName,
+  }) async {
     final fullUrl = '$url/api/signup';
     Response response = await Dio().post(fullUrl,
+        options: Options(headers: {
+          'x-mock-response-name': 'signup',
+          'Content-Type': 'application/json'
+        }),
         data: jsonEncode({
           'phone': phone,
           'code': code,
           'first_name': firstName,
           'last_name': lastName,
-          'specialization_id': specializationId
         }));
     return response.statusCode;
   }
