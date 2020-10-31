@@ -4,17 +4,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:ub/main/utils/AppWidget.dart';
 import 'package:ub/views/screen/Listing.dart';
-import 'package:ub/views/utils/T1Colors.dart';
-import 'package:ub/views/utils/T1Constant.dart';
-import 'package:ub/views/utils/T1DataGenerator.dart';
-import 'package:ub/views/utils/T1Images.dart';
-import 'package:ub/views/utils/T1Strings.dart';
-import 'package:ub/views/utils/T1Widget.dart';
+import 'package:ub/views/utils/Colors.dart';
+import 'package:ub/views/utils/Constant.dart';
+import 'package:ub/views/utils/DataGenerator.dart';
+import 'package:ub/views/utils/Images.dart';
+import 'package:ub/views/utils/Strings.dart';
+import 'package:ub/views/utils/Widget.dart';
 
 import '../../main.dart';
 
-class T1Card extends StatelessWidget {
-  static var tag = "/T1Cards";
+class Card extends StatelessWidget {
+  static var tag = "/Cards";
 
   Widget counter(String counter, String counterName) {
     return Column(
@@ -91,7 +91,7 @@ class T1Card extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 16),
-              T1ListItem(getListings()[0], 1)
+              ListItem(getListings()[0], 1)
             ],
           ),
         ),

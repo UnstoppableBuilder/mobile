@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:ub/main/utils/AppWidget.dart';
 import 'package:ub/main/utils/dots_indicator/dots_indicator.dart';
-import 'package:ub/views/utils/T1Colors.dart';
-import 'package:ub/views/utils/T1Constant.dart';
-import 'package:ub/views/utils/T1Images.dart';
+import 'package:ub/views/utils/Colors.dart';
+import 'package:ub/views/utils/Constant.dart';
+import 'package:ub/views/utils/Images.dart';
 
 import 'Walkthrough.dart';
 

@@ -3,21 +3,21 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:ub/main/utils/AppWidget.dart';
-import 'package:ub/views/utils/T1Colors.dart';
-import 'package:ub/views/utils/T1Images.dart';
-import 'package:ub/views/utils/T1Strings.dart';
-import 'package:ub/views/utils/T1Widget.dart';
+import 'package:ub/views/utils/Colors.dart';
+import 'package:ub/views/utils/Images.dart';
+import 'package:ub/views/utils/Strings.dart';
+import 'package:ub/views/utils/Widget.dart';
 
 import '../../main.dart';
 
-class T1BottomNavigation extends StatefulWidget {
-  static var tag = "/T1BottomNavigation";
+class BottomNavigation extends StatefulWidget {
+  static var tag = "/BottomNavigation";
 
   @override
-  T1BottomNavigationState createState() => T1BottomNavigationState();
+  BottomNavigationState createState() => BottomNavigationState();
 }
 
-class T1BottomNavigationState extends State<T1BottomNavigation> {
+class BottomNavigationState extends State<BottomNavigation> {
   var isSelected = 1;
 
   @override

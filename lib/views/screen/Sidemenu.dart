@@ -3,21 +3,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:ub/main.dart';
 import 'package:ub/main/utils/AppWidget.dart';
-import 'package:ub/views/utils/T1Colors.dart';
-import 'package:ub/views/utils/T1Constant.dart';
-import 'package:ub/views/utils/T1Images.dart';
-import 'package:ub/views/utils/T1Strings.dart';
+import 'package:ub/views/utils/Colors.dart';
+import 'package:ub/views/utils/Constant.dart';
+import 'package:ub/views/utils/Images.dart';
+import 'package:ub/views/utils/Strings.dart';
 
-class T1SideMenu extends StatefulWidget {
-  static var tag = "/T1SideMenu";
+class SideMenu extends StatefulWidget {
+  static var tag = "/SideMenu";
 
   @override
   State<StatefulWidget> createState() {
-    return T1SideMenuState();
+    return SideMenuState();
   }
 }
 
-class T1SideMenuState extends State<T1SideMenu> {
+class SideMenuState extends State<SideMenu> {
   bool isCollapsed = true;
   final Duration duration = Duration(milliseconds: 300);
 

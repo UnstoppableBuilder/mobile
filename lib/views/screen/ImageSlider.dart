@@ -5,23 +5,23 @@ import 'package:nb_utils/nb_utils.dart';
 import 'package:ub/main/utils/AppWidget.dart';
 import 'package:ub/main/utils/dots_indicator/src/dots_decorator.dart';
 import 'package:ub/main/utils/dots_indicator/src/dots_indicator.dart';
-import 'package:ub/views/utils/T1Colors.dart';
-import 'package:ub/views/utils/T1Images.dart';
-import 'package:ub/views/utils/T1Strings.dart';
+import 'package:ub/views/utils/Colors.dart';
+import 'package:ub/views/utils/Images.dart';
+import 'package:ub/views/utils/Strings.dart';
 
 import '../../main.dart';
 
-class T1ImageSlider extends StatefulWidget {
-  static var tag = "/T1ImageSlider";
+class ImageSlider extends StatefulWidget {
+  static var tag = "/ImageSlider";
 
   @override
-  T1ImageSliderState createState() => T1ImageSliderState();
+  ImageSliderState createState() => ImageSliderState();
 }
 
-class T1ImageSliderState extends State<T1ImageSlider> {
+class ImageSliderState extends State<ImageSlider> {
   var currentIndexPage = 0;
 
-  // List<T1Slider> mSliderList;
+  // List<Slider> mSliderList;
   @override
   void initState() {
     super.initState();

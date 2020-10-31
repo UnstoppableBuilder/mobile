@@ -4,24 +4,24 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ub/main/utils/AppWidget.dart';
-import 'package:ub/views/utils/T1Colors.dart';
-import 'package:ub/views/utils/T1Constant.dart';
-import 'package:ub/views/utils/T1Images.dart';
-import 'package:ub/views/utils/T1Strings.dart';
-import 'package:ub/views/utils/T1Widget.dart';
+import 'package:ub/views/utils/Colors.dart';
+import 'package:ub/views/utils/Constant.dart';
+import 'package:ub/views/utils/Images.dart';
+import 'package:ub/views/utils/Strings.dart';
+import 'package:ub/views/utils/Widget.dart';
 import 'package:nb_utils/nb_utils.dart';
 import '../../main.dart';
 
-class T1Dashboard extends StatefulWidget {
-  static var tag = "/T1Dashboard";
+class Dashboard extends StatefulWidget {
+  static var tag = "/Dashboard";
 
   @override
   State<StatefulWidget> createState() {
-    return T1DashboardState();
+    return DashboardState();
   }
 }
 
-class T1DashboardState extends State<T1Dashboard> {
+class DashboardState extends State<Dashboard> {
   var isSelected = 1;
   var width;
   var height;

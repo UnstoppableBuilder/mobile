@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:ub/main.dart';
 import 'package:ub/main/utils/AppWidget.dart';
-import 'package:ub/views/utils/T1Colors.dart';
-import 'package:ub/views/utils/T1Constant.dart';
-import 'package:ub/views/utils/T1Images.dart';
-import 'package:ub/views/utils/T1Strings.dart';
-import 'package:ub/views/utils/T1Widget.dart';
+import 'package:ub/views/utils/Colors.dart';
+import 'package:ub/views/utils/Constant.dart';
+import 'package:ub/views/utils/Images.dart';
+import 'package:ub/views/utils/Strings.dart';
+import 'package:ub/views/utils/Widget.dart';
 
-class T1Profile extends StatelessWidget {
-  static var tag = "/T1Profile";
+class Profile extends StatelessWidget {
+  static var tag = "/Profile";
 
   Widget counter(String counter, String counterName) {
     return Column(

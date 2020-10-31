@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
         supportedLocales: [Locale('en', '')],
         //routes: routes(),
         title: '$mainAppName${!isMobile ? ' ${platformName()}' : ''}',
-        home: T1Signup(),
+        home: Signup(),
         theme: !appStore.isDarkModeOn
             ? AppThemeData.lightTheme
             : AppThemeData.darkTheme,

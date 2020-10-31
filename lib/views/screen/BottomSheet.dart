@@ -3,21 +3,21 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:ub/main/utils/AppWidget.dart';
-import 'package:ub/views/utils/T1Colors.dart';
-import 'package:ub/views/utils/T1Images.dart';
-import 'package:ub/views/utils/T1Strings.dart';
-import 'package:ub/views/utils/T1Widget.dart';
+import 'package:ub/views/utils/Colors.dart';
+import 'package:ub/views/utils/Images.dart';
+import 'package:ub/views/utils/Strings.dart';
+import 'package:ub/views/utils/Widget.dart';
 
 import '../../main.dart';
 
-class T1BottomSheet extends StatefulWidget {
-  static var tag = "/T1BottomSheet";
+class BottomSheet extends StatefulWidget {
+  static var tag = "/BottomSheet";
 
   @override
-  T1BottomSheetState createState() => T1BottomSheetState();
+  BottomSheetState createState() => BottomSheetState();
 }
 
-class T1BottomSheetState extends State<T1BottomSheet> {
+class BottomSheetState extends State<BottomSheet> {
   GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
 
   @override

@@ -2,19 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:ub/main/utils/AppWidget.dart';
-import 'package:ub/views/utils/T1Strings.dart';
-import 'package:ub/views/utils/T1Widget.dart';
+import 'package:ub/views/utils/Strings.dart';
+import 'package:ub/views/utils/Widget.dart';
 
 import '../../main.dart';
 
-class T1Search extends StatefulWidget {
-  static var tag = "/T1Search";
+class Search extends StatefulWidget {
+  static var tag = "/Search";
 
   @override
-  T1SearchState createState() => T1SearchState();
+  SearchState createState() => SearchState();
 }
 
-class T1SearchState extends State<T1Search> {
+class SearchState extends State<Search> {
   @override
   Widget build(BuildContext context) {
     changeStatusColor(appStore.appBarColor);

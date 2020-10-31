@@ -3,8 +3,8 @@ import 'package:nb_utils/nb_utils.dart';
 import 'package:ub/main/utils/AppWidget.dart';
 
 import '../../main.dart';
-import 'T1Colors.dart';
-import 'T1Constant.dart';
+import 'Colors.dart';
+import 'Constant.dart';
 
 //-------------------------------------------Form-------------------------------------------------------------------------
 // EditText rounded Style

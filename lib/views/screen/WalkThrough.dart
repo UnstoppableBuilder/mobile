@@ -4,12 +4,12 @@ import 'package:ub/main/utils/AppWidget.dart';
 import 'package:ub/views/screen/Signup.dart';
 import 'package:ub/views/screen/walk/IntroScreen.dart';
 import 'package:ub/views/screen/walk/Walkthrough.dart';
-import 'package:ub/views/utils/T1Images.dart';
+import 'package:ub/views/utils/Images.dart';
 
 import '../../main.dart';
 
-class T1WalkThrough extends StatelessWidget {
-  static var tag = "/T1WalkThrough";
+class WalkThrough extends StatelessWidget {
+  static var tag = "/WalkThrough";
 
   final List<Walkthrough> list = [
     Walkthrough(
@@ -36,7 +36,7 @@ class T1WalkThrough extends StatelessWidget {
       body: Container(
         child: IntroScreen(
           list,
-          MaterialPageRoute(builder: (context) => T1Signup()),
+          MaterialPageRoute(builder: (context) => Signup()),
         ),
       ),
     );

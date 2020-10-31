@@ -1,165 +1,165 @@
 import 'package:ub/views/model/model.dart';
-import 'package:ub/views/utils/T1Images.dart';
+import 'package:ub/views/utils/Images.dart';
 
-List<T1Model> getListings() {
-  List<T1Model> list = List<T1Model>();
-  list.add(T1Model(
+List<Model> getListings() {
+  List<Model> list = List<Model>();
+  list.add(Model(
       "John",
       "12 min ago",
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
       "ceo",
       t1_ic_user1));
-  list.add(T1Model(
+  list.add(Model(
       "John",
       "12 min ago",
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
       "ceo",
       t1_ic_user2));
-  list.add(T1Model(
+  list.add(Model(
       "John",
       "12 min ago",
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
       "ceo",
       t1_ic_user3));
-  list.add(T1Model(
+  list.add(Model(
       "John",
       "12 min ago",
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
       "ceo",
       t1_ic_user1));
-  list.add(T1Model(
+  list.add(Model(
       "John",
       "12 min ago",
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
       "ceo",
       t1_ic_user2));
-  list.add(T1Model(
+  list.add(Model(
       "John",
       "12 min ago",
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
       "ceo",
       t1_ic_user3));
-  list.add(T1Model(
+  list.add(Model(
       "John",
       "12 min ago",
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
       "ceo",
       t1_ic_user1));
-  list.add(T1Model(
+  list.add(Model(
       "John",
       "12 min ago",
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
       "ceo",
       t1_ic_user2));
-  list.add(T1Model(
+  list.add(Model(
       "John",
       "12 min ago",
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
       "ceo",
       t1_ic_user3));
-  list.add(T1Model(
+  list.add(Model(
       "John",
       "12 min ago",
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
       "ceo",
       t1_ic_user1));
-  list.add(T1Model(
+  list.add(Model(
       "John",
       "12 min ago",
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
       "ceo",
       t1_ic_user2));
-  list.add(T1Model(
+  list.add(Model(
       "John",
       "12 min ago",
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
       "ceo",
       t1_ic_user3));
-  list.add(T1Model(
+  list.add(Model(
       "John",
       "12 min ago",
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
       "ceo",
       t1_ic_user1));
-  list.add(T1Model(
+  list.add(Model(
       "John",
       "12 min ago",
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
       "ceo",
       t1_ic_user2));
-  list.add(T1Model(
+  list.add(Model(
       "John",
       "12 min ago",
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
       "ceo",
       t1_ic_user3));
-  list.add(T1Model(
+  list.add(Model(
       "John",
       "12 min ago",
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
       "ceo",
       t1_ic_user1));
-  list.add(T1Model(
+  list.add(Model(
       "John",
       "12 min ago",
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
       "ceo",
       t1_ic_user2));
-  list.add(T1Model(
+  list.add(Model(
       "John",
       "12 min ago",
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
       "ceo",
       t1_ic_user3));
-  list.add(T1Model(
+  list.add(Model(
       "John",
       "12 min ago",
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
       "ceo",
       t1_ic_user1));
-  list.add(T1Model(
+  list.add(Model(
       "John",
       "12 min ago",
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
       "ceo",
       t1_ic_user2));
-  list.add(T1Model(
+  list.add(Model(
       "John",
       "12 min ago",
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
       "ceo",
       t1_ic_user3));
-  list.add(T1Model(
+  list.add(Model(
       "John",
       "12 min ago",
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
       "ceo",
       t1_ic_user1));
-  list.add(T1Model(
+  list.add(Model(
       "John",
       "12 min ago",
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
       "ceo",
       t1_ic_user2));
-  list.add(T1Model(
+  list.add(Model(
       "John",
       "12 min ago",
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
       "ceo",
       t1_ic_user3));
-  list.add(T1Model(
+  list.add(Model(
       "John",
       "12 min ago",
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
       "ceo",
       t1_ic_user1));
-  list.add(T1Model(
+  list.add(Model(
       "John",
       "12 min ago",
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
       "ceo",
       t1_ic_user2));
-  list.add(T1Model(
+  list.add(Model(
       "John",
       "12 min ago",
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",

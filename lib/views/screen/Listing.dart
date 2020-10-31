@@ -7,23 +7,23 @@ import 'package:nb_utils/nb_utils.dart';
 import 'package:ub/main.dart';
 import 'package:ub/main/utils/AppWidget.dart';
 import 'package:ub/views/model/model.dart';
-import 'package:ub/views/utils/T1Colors.dart';
-import 'package:ub/views/utils/T1Constant.dart';
-import 'package:ub/views/utils/T1DataGenerator.dart';
-import 'package:ub/views/utils/T1Strings.dart';
+import 'package:ub/views/utils/Colors.dart';
+import 'package:ub/views/utils/Constant.dart';
+import 'package:ub/views/utils/DataGenerator.dart';
+import 'package:ub/views/utils/Strings.dart';
 
-class T1Listing extends StatefulWidget {
-  static var tag = "/T1Listing";
+class Listing extends StatefulWidget {
+  static var tag = "/Listing";
 
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
-    return T1ListingState();
+    return ListingState();
   }
 }
 
-class T1ListingState extends State<T1Listing> {
-  List<T1Model> mListings;
+class ListingState extends State<Listing> {
+  List<Model> mListings;
 
   @override
   void initState() {
@@ -47,7 +47,7 @@ class T1ListingState extends State<T1Listing> {
                   itemCount: mListings.length,
                   shrinkWrap: true,
                   itemBuilder: (context, index) {
-                    return T1ListItem(mListings[index], index);
+                    return ListItem(mListings[index], index);
                   },
                 ),
               )
@@ -59,11 +59,11 @@ class T1ListingState extends State<T1Listing> {
   }
 }
 
-class T1ListItem extends StatelessWidget {
-  T1Model model;
+class ListItem extends StatelessWidget {
+  Model model;
   int pos;
 
-  T1ListItem(T1Model model, int pos) {
+  ListItem(Model model, int pos) {
     this.model = model;
     this.pos = pos;
   }
