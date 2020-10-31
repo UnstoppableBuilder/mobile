@@ -35,21 +35,21 @@ class AppThemeData {
     ),
     visualDensity: VisualDensity.adaptivePlatformDensity,
   ).copyWith(
-    pageTransitionsTheme: PageTransitionsTheme(
-      builders: <TargetPlatform, PageTransitionsBuilder> {
+      pageTransitionsTheme: PageTransitionsTheme(
+          builders: <TargetPlatform, PageTransitionsBuilder>{
         TargetPlatform.android: ZoomPageTransitionsBuilder(),
         TargetPlatform.iOS: ZoomPageTransitionsBuilder(),
         TargetPlatform.linux: ZoomPageTransitionsBuilder(),
         TargetPlatform.macOS: ZoomPageTransitionsBuilder(),
-      }
-    )
-  );
+      }));
 
   static final ThemeData darkTheme = ThemeData(
     scaffoldBackgroundColor: appBackgroundColorDark,
     highlightColor: appBackgroundColorDark,
     errorColor: Color(0xFFCF6676),
-    appBarTheme: AppBarTheme(color: appBackgroundColorDark, iconTheme: IconThemeData(color: whiteColor)),
+    appBarTheme: AppBarTheme(
+        color: appBackgroundColorDark,
+        iconTheme: IconThemeData(color: whiteColor)),
     primaryColor: color_primary_black,
     accentColor: whiteColor,
     dividerColor: Color(0xFFDADADA).withOpacity(0.3),
@@ -57,7 +57,8 @@ class AppThemeData {
     cursorColor: Colors.white,
     hoverColor: Colors.black12,
     fontFamily: GoogleFonts.poppins().fontFamily,
-    bottomSheetTheme: BottomSheetThemeData(backgroundColor: appBackgroundColorDark),
+    bottomSheetTheme:
+        BottomSheetThemeData(backgroundColor: appBackgroundColorDark),
     primaryTextTheme: TextTheme(
       headline6: primaryTextStyle(color: Colors.white),
       overline: primaryTextStyle(color: Colors.white),
@@ -76,13 +77,11 @@ class AppThemeData {
     ),
     visualDensity: VisualDensity.adaptivePlatformDensity,
   ).copyWith(
-    pageTransitionsTheme: PageTransitionsTheme(
-      builders: <TargetPlatform, PageTransitionsBuilder> {
+      pageTransitionsTheme: PageTransitionsTheme(
+          builders: <TargetPlatform, PageTransitionsBuilder>{
         TargetPlatform.android: ZoomPageTransitionsBuilder(),
         TargetPlatform.iOS: ZoomPageTransitionsBuilder(),
         TargetPlatform.linux: ZoomPageTransitionsBuilder(),
         TargetPlatform.macOS: ZoomPageTransitionsBuilder(),
-      }
-    )
-  );
+      }));
 }
