@@ -72,13 +72,16 @@ class IntroScreenState extends State<IntroScreen> {
                         activeColor: t1_colorPrimary),
                   ),
                   SizedBox(height: height * 0.07),
-                  Container(
-                    decoration: BoxDecoration(
-                        color: t1_colorPrimary, shape: BoxShape.circle),
-                    child: Text("Skip",
-                        style: TextStyle(
-                            color: t1_white, fontSize: textSizeSmall)),
-                    padding: EdgeInsets.all(24),
+                  GestureDetector(
+                    onTap: () => widget.skipPage(context),
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: t1_colorPrimary, shape: BoxShape.circle),
+                      child: Text("Skip",
+                          style: TextStyle(
+                              color: t1_white, fontSize: textSizeSmall)),
+                      padding: EdgeInsets.all(24),
+                    ),
                   ),
                   SizedBox(height: 16),
                   Row(

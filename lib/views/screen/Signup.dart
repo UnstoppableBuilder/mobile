@@ -55,8 +55,11 @@ class Signup extends StatelessWidget {
                           textColor: appStore.textSecondaryColor,
                           fontSize: textSizeLargeMedium),
                       SizedBox(width: 8),
-                      text(t1_lbl_sign_in,
-                          fontFamily: fontMedium, textColor: t1_blue)
+                      GestureDetector(
+                        onTap: () => print('go'),
+                        child: text(t1_lbl_sign_in,
+                            fontFamily: fontMedium, textColor: t1_blue),
+                      )
                     ],
                   ),
                   SizedBox(height: 30),

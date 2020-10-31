@@ -67,6 +67,7 @@ flutter:
 
   assets:
     - images/
+    - images/LikeButton/image/
 
   fonts:
     - family: Andina
