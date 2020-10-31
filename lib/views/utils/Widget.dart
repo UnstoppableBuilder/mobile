@@ -86,7 +86,7 @@ SizedBox buttonStyle(var text) {
   );
 }
 
-Widget shadowButton(String name) {
+Widget shadowButton(String name, VoidCallback onPressed) {
   return MaterialButton(
     height: 60,
     minWidth: double.infinity,
@@ -97,7 +97,7 @@ Widget shadowButton(String name) {
     textColor: t1_white,
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40.0)),
     color: t1_colorPrimary,
-    onPressed: () => {},
+    onPressed: () => onPressed(),
   );
 }
 

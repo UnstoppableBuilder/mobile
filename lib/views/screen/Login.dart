@@ -11,6 +11,8 @@ import 'package:ub/views/utils/Widget.dart';
 import 'package:ub/main/utils/AppWidget.dart';
 
 import '../../main.dart';
+import 'Dashboard.dart';
+import 'Signup.dart';
 
 class Login extends StatefulWidget {
   static var tag = "/SignIn";
@@ -40,7 +42,12 @@ class _LoginState extends State<Login> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       formHeading(t1_lbl_sign_in_header),
-                      formSubHeadingForm(t1_lbl_sign_up),
+                      GestureDetector(
+                          onTap: () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Signup())),
+                          child: formSubHeadingForm(t1_lbl_sign_up)),
                     ],
                   ),
                   SizedBox(height: 50),
@@ -66,7 +73,12 @@ class _LoginState extends State<Login> {
                   SizedBox(height: 8),
                   Padding(
                       padding: EdgeInsets.fromLTRB(40, 16, 40, 16),
-                      child: shadowButton(t1_lbl_sign_in)),
+                      child: shadowButton(
+                          t1_lbl_sign_in,
+                          () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Dashboard())))),
                   SizedBox(height: 24),
                   text(t1_lbl_forgot_password,
                       textColor: appStore.textPrimaryColor,
