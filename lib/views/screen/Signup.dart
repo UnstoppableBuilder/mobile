@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:ub/views/screen/Dashboard.dart';
 import 'package:ub/views/screen/Login.dart';
+import 'package:ub/views/screen/Sidemenu.dart';
 import 'package:ub/views/utils/Colors.dart';
 import 'package:ub/views/utils/Constant.dart';
 import 'package:ub/views/utils/Images.dart';
@@ -66,8 +67,10 @@ class Signup extends StatelessWidget {
                           fontSize: textSizeLargeMedium),
                       SizedBox(width: 8),
                       GestureDetector(
-                        onTap: () => Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => Login())),
+                        onTap: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SideMenu())),
                         child: text(t1_lbl_sign_in,
                             fontFamily: fontMedium, textColor: t1_blue),
                       )

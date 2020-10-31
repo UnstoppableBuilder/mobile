@@ -18,6 +18,10 @@ import '../../main.dart';
 class Dashboard extends StatefulWidget {
   static var tag = "/Dashboard";
 
+  VoidCallback menuCallback;
+
+  Dashboard({this.menuCallback});
+
   @override
   State<StatefulWidget> createState() {
     return DashboardState();
@@ -50,27 +54,14 @@ class DashboardState extends State<Dashboard> {
               Profile(),
             //side bar
             if (true)
-              SafeArea(
-                child: Container(
-                  color: appStore.appBarColor,
-                  padding: EdgeInsets.only(left: 14),
-                  width: MediaQuery.of(context).size.width,
-                  height: 60,
-                  child: Row(
-                    children: <Widget>[
-                      SvgPicture.asset(
-                        t1_menu,
-                        width: 25,
-                        height: 25,
-                        color: appStore.iconColor,
-                      ),
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
-                        child: Center(
-                          child: headerText(t1_lbl_home),
-                        ),
-                      )
-                    ],
+              Container(
+                height: 60,
+                width: 60,
+                alignment: Alignment.topLeft,
+                child: SafeArea(
+                  child: IconButton(
+                    icon: Icon(Icons.menu),
+                    onPressed: () => widget.menuCallback(),
                   ),
                 ),
               ),

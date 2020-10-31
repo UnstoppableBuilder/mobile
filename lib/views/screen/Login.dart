@@ -12,6 +12,7 @@ import 'package:ub/main/utils/AppWidget.dart';
 
 import '../../main.dart';
 import 'Dashboard.dart';
+import 'Sidemenu.dart';
 import 'Signup.dart';
 
 class Login extends StatefulWidget {
@@ -46,7 +47,7 @@ class _LoginState extends State<Login> {
                           onTap: () => Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => Signup())),
+                                  builder: (context) => SideMenu())),
                           child: formSubHeadingForm(t1_lbl_sign_up)),
                     ],
                   ),

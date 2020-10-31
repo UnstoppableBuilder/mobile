@@ -54,7 +54,7 @@ class SettingScreenState extends State<SettingScreen> {
             children: [
               settingItem(
                 context,
-                "Documentation",
+                "Пользовательское соглашение",
                 onTap: () async {
                   launch(DocumentationUrl,
                       forceWebView: true, enableJavaScript: true);
@@ -65,7 +65,7 @@ class SettingScreenState extends State<SettingScreen> {
               Divider(height: 0),
               settingItem(
                 context,
-                "Change Logs",
+                "Политика обработки данных",
                 onTap: () async {
                   launch(ChangeLogsUrl,
                       forceWebView: true, enableJavaScript: true);
@@ -76,7 +76,7 @@ class SettingScreenState extends State<SettingScreen> {
               Divider(height: 0),
               settingItem(
                 context,
-                "Share App",
+                "Поделиться",
                 onTap: () async {
                   PackageInfo.fromPlatform().then((value) async {
                     String package = value.packageName;
@@ -87,23 +87,23 @@ class SettingScreenState extends State<SettingScreen> {
                 leading: Image.asset('images/app/ic_share.png',
                     height: 24, width: 24, color: appColorPrimary),
               ),
+              // Divider(height: 0),
+              // settingItem(
+              //   context,
+              //   "Rate us",
+              //   onTap: () {
+              //     PackageInfo.fromPlatform().then((value) async {
+              //       String package = value.packageName;
+              //       launch('$PlayStoreUrl$package');
+              //     });
+              //   },
+              //   leading: Image.asset('images/app/ic_rate_app.png',
+              //       height: 24, width: 24, color: appColorPrimary),
+              // ),
               Divider(height: 0),
               settingItem(
                 context,
-                "Rate us",
-                onTap: () {
-                  PackageInfo.fromPlatform().then((value) async {
-                    String package = value.packageName;
-                    launch('$PlayStoreUrl$package');
-                  });
-                },
-                leading: Image.asset('images/app/ic_rate_app.png',
-                    height: 24, width: 24, color: appColorPrimary),
-              ),
-              Divider(height: 0),
-              settingItem(
-                context,
-                "Dark Mode",
+                "Темная тема",
                 onTap: () {
                   appStore.toggleDarkMode();
                   setState(() {});
