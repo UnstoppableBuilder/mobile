@@ -107,7 +107,7 @@ class Profile extends StatelessWidget {
                           child: view(),
                         ),
                         SizedBox(height: 8),
-                        profileText("Male"),
+                        profileText("Мужчина"),
                         Padding(
                           padding: EdgeInsets.fromLTRB(16, 10, 16, 10),
                           child: view(),

@@ -75,15 +75,17 @@ class IntroScreenState extends State<IntroScreen> {
                   GestureDetector(
                     onTap: () => widget.skipPage(context),
                     child: Container(
+                      alignment: Alignment.center,
+                      height: 80,
                       decoration: BoxDecoration(
                           color: t1_colorPrimary, shape: BoxShape.circle),
-                      child: Text("Skip",
+                      child: Text("Пропустить",
                           style: TextStyle(
                               color: t1_white, fontSize: textSizeSmall)),
                       padding: EdgeInsets.all(24),
                     ),
                   ),
-                  SizedBox(height: 16),
+                  SizedBox(height: 10),
                   Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[]),

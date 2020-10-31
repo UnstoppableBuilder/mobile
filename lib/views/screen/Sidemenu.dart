@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:ub/main.dart';
 import 'package:ub/main/utils/AppWidget.dart';
+import 'package:ub/views/screen/Dashboard.dart';
+import 'package:ub/views/screen/Signup.dart';
 import 'package:ub/views/utils/Colors.dart';
 import 'package:ub/views/utils/Constant.dart';
 import 'package:ub/views/utils/Images.dart';
@@ -18,7 +20,7 @@ class SideMenu extends StatefulWidget {
 }
 
 class SideMenuState extends State<SideMenu> {
-  bool isCollapsed = true;
+  bool isCollapsed = false;
   final Duration duration = Duration(milliseconds: 300);
 
   @override
@@ -29,7 +31,7 @@ class SideMenuState extends State<SideMenu> {
 
   init() async {
     Future.delayed(Duration(seconds: 1), () {
-      isCollapsed = false;
+      isCollapsed = true;
       setState(() {});
     });
   }
@@ -99,10 +101,10 @@ class SideMenuState extends State<SideMenu> {
                       text(t1_user_email,
                           textColor: t1_colorPrimary, fontSize: textSizeMedium),
                       SizedBox(height: 24),
-                      menuItem(t1_lbl_connect_to_pc),
-                      menuItem(t1_lbl_share_files),
+                      // menuItem(t1_lbl_connect_to_pc),
+                      // menuItem(t1_lbl_share_files),
                       menuItem(t1_lbl_profile_edit),
-                      menuItem(t1_lbl_refer_earn),
+                      // menuItem(t1_lbl_refer_earn),
                       SizedBox(height: 10),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -133,12 +135,18 @@ class SideMenuState extends State<SideMenu> {
                       menuItem(t1_lbl_about_us),
                       menuItem(t1_lbl_setting),
                       Expanded(
-                        child: Container(
-                          margin: EdgeInsets.only(top: 50),
-                          child: text(t1_lbl_logout,
-                              textColor: t1_colorPrimary,
-                              fontFamily: fontSemibold,
-                              fontSize: textSizeNormal),
+                        child: GestureDetector(
+                          onTap: () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Signup())),
+                          child: Container(
+                            margin: EdgeInsets.only(top: 50),
+                            child: text(t1_lbl_logout,
+                                textColor: t1_colorPrimary,
+                                fontFamily: fontSemibold,
+                                fontSize: textSizeNormal),
+                          ),
                         ),
                       )
                     ],
@@ -148,33 +156,17 @@ class SideMenuState extends State<SideMenu> {
             ),
           ),
           AnimatedPositioned(
-            duration: duration,
-            top: isCollapsed ? 0 : 0.2 * height,
-            bottom: isCollapsed ? 0 : 0.2 * height,
-            left: isCollapsed ? 0 : 0.8 * width,
-            right: isCollapsed ? 0 : -0.2 * width,
-            child: Material(
-              child: Container(
-                alignment: Alignment.topLeft,
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height,
-                decoration: boxDecoration(
-                    radius: 0,
-                    bgColor: appStore.scaffoldBackground,
-                    showShadow: true),
-                child: SafeArea(
-                  child: IconButton(
-                    icon: Icon(Icons.menu),
-                    onPressed: () {
-                      setState(() {
-                        isCollapsed = !isCollapsed;
-                      });
-                    },
-                  ),
-                ),
-              ),
-            ),
-          )
+              duration: duration,
+              top: isCollapsed ? 0 : 0.2 * height,
+              bottom: isCollapsed ? 0 : 0.2 * height,
+              left: isCollapsed ? 0 : 0.8 * width,
+              right: isCollapsed ? 0 : -0.2 * width,
+              child: Dashboard(
+                  menuCallback: () => {
+                        setState(() {
+                          isCollapsed = !isCollapsed;
+                        })
+                      }))
         ],
       ),
     ));

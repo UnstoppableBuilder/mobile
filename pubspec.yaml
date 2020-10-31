@@ -67,6 +67,7 @@ flutter:
 
   assets:
     - images/
+    - images/app/
     - images/LikeButton/image/
 
   fonts:
