@@ -14,19 +14,25 @@ class WalkThrough extends StatelessWidget {
   final List<Walkthrough> list = [
     Walkthrough(
         title: "Add Files",
-        content:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
-        imageIcon: t1_walk1),
+        content: "Забыл про каску?\nПримеришь повязку",
+        logoIcon: "images/onboarding_top.svg",
+        imageIcon: "images/onboarding_bottom.svg"),
     Walkthrough(
         title: "Select Files",
         content:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
-        imageIcon: t1_walk2),
+            "Работать со случайных подставок (ящиков бочек, досок и т.д.) запрещается",
+        logoIcon: "images/onboarding_top.svg",
+        imageIcon: "images/onboarding_bottom.svg"),
     Walkthrough(
         title: "Share Files",
-        content:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
-        imageIcon: t1_walk3),
+        content: "Не ставь лестницу на шаткое основание",
+        logoIcon: "images/onboarding_top.svg",
+        imageIcon: "images/onboarding_bottom.svg"),
+    Walkthrough(
+        title: "Share Files",
+        content: "Не входи в зону работы экскаватора",
+        logoIcon: "images/onboarding_top.svg",
+        imageIcon: "images/onboarding_bottom.svg"),
   ];
 
   @override
