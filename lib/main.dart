@@ -5,8 +5,6 @@ import 'package:nb_utils/nb_utils.dart';
 import 'package:ub/main/store/AppStore.dart';
 import 'package:ub/main/utils/AppTheme.dart';
 import 'package:ub/views/screen/Sidemenu.dart';
-import 'package:ub/views/screen/Signup.dart';
-import 'package:ub/views/screen/WalkThrough.dart';
 
 import 'main/utils/AppConstant.dart';
 import 'main/utils/AppWidget.dart';
@@ -20,7 +18,6 @@ void main() async {
 
   appStore.toggleDarkMode(value: await getBool(isDarkModeOnPref));
 
-void main() {
   runApp(MyApp());
 }
 
