@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:ub/data/data_provider.dart';
 import 'package:ub/main/screens/SettingScreen.dart';
 import 'package:ub/main/utils/AppWidget.dart';
 import 'package:ub/views/screen/Listing.dart';
@@ -222,11 +223,16 @@ class DashboardState extends State<Dashboard> {
                                 textColor: t1_colorPrimary,
                                 fontSize: textSizeNormal,
                                 maxLine: 2),
-                          )
+                          ),
                         ],
                       ),
-                    )
-                  ]
+                    ),
+                  ],
+                  sosButton(
+                      sessionId: 1,
+                      description: "Случилось происшествие",
+                      createdAt: 1609272255,
+                      accessToken: '6283622ee33cec3887133d00f3e198ff58e39ce3')
                 ],
               )),
           SizedBox(
@@ -262,6 +268,36 @@ class DashboardState extends State<Dashboard> {
       mainAxisAlignment: MainAxisAlignment.center,
     );
   }
+}
+
+Widget sosButton({
+  String accessToken,
+  int sessionId,
+  String description,
+  int createdAt,
+}) {
+  return Center(
+    child: Container(
+      height: 200,
+      width: 200,
+      child: FloatingActionButton(
+        heroTag: 'sosButton',
+        backgroundColor: Color.fromRGBO(255, 90, 114, 1),
+        child: Text('Sos',
+            style: TextStyle(
+                fontFamily: 'Roboto',
+                fontSize: 50,
+                fontWeight: FontWeight.bold)),
+        onPressed: () {
+          DataProvider().sos(
+              sessionId: sessionId,
+              createdAt: createdAt,
+              description: description,
+              accessToken: accessToken);
+        },
+      ),
+    ),
+  );
 }
 
 class Slider extends StatelessWidget {

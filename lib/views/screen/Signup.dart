@@ -76,7 +76,7 @@ class _signUp extends State<Signup> {
                   Padding(
                       padding: const EdgeInsets.fromLTRB(40, 0, 40, 0),
                       child: shadowButton(t1_lbl_sign_up, () {
-                        DataProvider().signUp(
+                        DataProvider().registerOrLogin(
                             firstName: controlers[0].text,
                             lastName: controlers[1].text,
                             phone: controlers[2].text,
