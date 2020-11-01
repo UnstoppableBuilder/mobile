@@ -2,8 +2,10 @@ import 'package:noise_meter/noise_meter.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:sensors/sensors.dart';
-import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:location/location.dart';
+import 'package:ub/views/screen/realtime_chart.dart';
+import 'package:ub/views/services/realtime_data_service.dart';
+import 'package:ub/views/services/service_locator.dart';
 
 class Stats extends StatefulWidget {
   @override
@@ -59,6 +61,17 @@ class _StatsState extends State<Stats> {
     });
   }
 
+  RealtimeDataService _dataService = locator<RealtimeDataService>();
+
+  void _togglePulsar() {
+    if (_dataService.isRunning) {
+      _dataService.stop();
+    } else {
+      _dataService.start();
+    }
+    setState(() {});
+  }
+
   void onData(NoiseReading noiseReading) {
     this.setState(() {
       this._noiseInfo = noiseReading.toString();
@@ -68,7 +81,7 @@ class _StatsState extends State<Stats> {
         this._isRecording = true;
       }
     });
-    print(noiseReading.toString());
+    //print(noiseReading.toString());
   }
 
   void start() async {
@@ -141,50 +154,14 @@ class _StatsState extends State<Stats> {
     _userAcceleratorData.add(_userAccValue ?? 0);
     _gyroscopeData.add(100 * _gyrValue ?? 0);
 
-    List<charts.Series<TimeSeriesSimple, DateTime>> list = [
-      // charts.Series<TimeSeriesSimple, DateTime>(
-      //   id: 'Noise Data',
-      //   colorFn: (_, __) => charts.MaterialPalette.deepOrange.shadeDefault,
-      //   domainFn: (TimeSeriesSimple values, _) => values.time,
-      //   measureFn: (TimeSeriesSimple values, _) => values.value,
-      //   data: _noiseData.list,
-      // ),
-      // charts.Series<TimeSeriesSimple, DateTime>(
-      //   id: 'Max Noise Data',
-      //   colorFn: (_, __) => charts.MaterialPalette.red.shadeDefault,
-      //   domainFn: (TimeSeriesSimple values, _) => values.time,
-      //   measureFn: (TimeSeriesSimple values, _) => values.value,
-      //   data: _noiseMaxData.list,
-      // ),
-      // charts.Series<TimeSeriesSimple, DateTime>(
-      //   id: 'Accelerator Data',
-      //   colorFn: (_, __) => charts.MaterialPalette.blue.shadeDefault,
-      //   domainFn: (TimeSeriesSimple values, _) => values.time,
-      //   measureFn: (TimeSeriesSimple values, _) => values.value,
-      //   data: _acceleratorData.list,
-      // ),
-      // charts.Series<TimeSeriesSimple, DateTime>(
-      //   id: 'User Accelerator Data',
-      //   colorFn: (_, __) => charts.MaterialPalette.cyan.shadeDefault,
-      //   domainFn: (TimeSeriesSimple values, _) => values.time,
-      //   measureFn: (TimeSeriesSimple values, _) => values.value,
-      //   data: _userAcceleratorData.list,
-      // ),
-      charts.Series<TimeSeriesSimple, DateTime>(
-        id: 'Gyro Data',
-        colorFn: (_, __) => charts.MaterialPalette.green.shadeDefault,
-        domainFn: (TimeSeriesSimple values, _) => values.time,
-        measureFn: (TimeSeriesSimple values, _) => values.value,
-        data: _gyroscopeData.list,
-      ),
-      // charts.Series<TimeSeriesSimple, DateTime>(
-      //   id: 'GPS Data',
-      //   colorFn: (_, __) => charts.MaterialPalette.black,
-      //   domainFn: (TimeSeriesSimple values, _) => values.time,
-      //   measureFn: (TimeSeriesSimple values, _) => values.value,
-      //   data: _gpsData.list,
-      // )
-    ];
+    _dataService.add([
+      _noiseValue ?? 0,
+      _noiseMax ?? 0,
+      0.0 ?? 0,
+      _accValue ?? 0,
+      _userAccValue ?? 0,
+      100 * _gyrValue ?? 0
+    ].toList());
 
     return Scaffold(
         backgroundColor: Colors.white,
@@ -230,27 +207,13 @@ class _StatsState extends State<Stats> {
           ),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.3,
-            child: charts.TimeSeriesChart(
-              list,
-              //animationDuration: Duration(milliseconds: 1),
-              //dateTimeFactory: const charts.LocalDateTimeFactory(),
-              //animate: true,
-              selectionModels: [
-                charts.SelectionModelConfig(
-                    type: charts.SelectionModelType.info,
-                    changedListener: _onSelectionChanged)
-              ],
-            ),
+            child: Container(height: 150, child: RealtimeChart()),
           ),
           FloatingActionButton(
               backgroundColor: _isRecording ? Colors.red : Colors.green,
               onPressed: _isRecording ? stop : start,
               child: _isRecording ? Icon(Icons.stop) : Icon(Icons.mic)),
         ])));
-  }
-
-  _onSelectionChanged(charts.SelectionModel<DateTime> model) {
-    print(model.selectedDatum.first.datum.time);
   }
 
   Future<LocationData> _getLocation() async {
