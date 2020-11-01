@@ -35,7 +35,7 @@ class ListingState extends State<Listing> {
   Widget build(BuildContext context) {
     changeStatusColor(appStore.appBarColor);
     return Scaffold(
-      appBar: appBar(context, t1_Listing),
+      //appBar: appBar(context, t1_Listing),
       body: Observer(
         builder: (_) => Container(
           child: Column(
@@ -127,7 +127,7 @@ class ListItem extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.start,
                     ),
                     SizedBox(height: 16),
-                    text(t1_samplelong_text,
+                    text(model.info,
                         fontSize: textSizeMedium,
                         maxLine: 2,
                         textColor: appStore.textPrimaryColor),

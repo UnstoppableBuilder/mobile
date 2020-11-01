@@ -53,25 +53,25 @@ class Profile extends StatelessWidget {
                 textColor: t1_colorPrimary,
                 fontSize: textSizeMedium,
                 fontFamily: fontMedium),
-            Padding(
-              padding: EdgeInsets.all(16),
-              child: Divider(color: t1_view_color, height: 0.5),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-                counter("100", t1_lbl_document),
-                counter("50", "Photos"),
-                counter("60", "Videos"),
-              ],
-            ),
-            SizedBox(height: 16),
+            // Padding(
+            //   padding: EdgeInsets.all(16),
+            //   child: Divider(color: t1_view_color, height: 0.5),
+            // ),
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.spaceAround,
+            //   children: <Widget>[
+            //     counter("100", t1_lbl_document),
+            //     counter("50", "Photos"),
+            //     counter("60", "Videos"),
+            //   ],
+            // ),
+            // SizedBox(height: 16),
           ],
         ),
       ),
     );
     return Scaffold(
-      appBar: appBar(context, t1_profile_title),
+      //appBar: appBar(context, t1_profile_title),
       body: Observer(
         builder: (_) => SingleChildScrollView(
           padding: EdgeInsets.only(top: 90, left: 2, right: 2),

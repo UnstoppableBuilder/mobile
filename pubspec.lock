@@ -78,13 +78,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.0-nullsafety.1"
-  clustering_google_maps:
-    dependency: "direct main"
-    description:
-      name: clustering_google_maps
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.1.2"
   collection:
     dependency: transitive
     description:
@@ -310,13 +303,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.2.1"
-  geohash:
-    dependency: transitive
-    description:
-      name: geohash
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.2.1"
   geolocator:
     dependency: "direct main"
     description:
@@ -346,12 +332,19 @@ packages:
     source: hosted
     version: "1.1.0"
   google_maps_flutter:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: google_maps_flutter
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.5.21+3"
+    version: "1.0.5"
+  google_maps_flutter_platform_interface:
+    dependency: transitive
+    description:
+      name: google_maps_flutter_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.4"
   html:
     dependency: "direct main"
     description:
@@ -798,6 +791,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.0-nullsafety.1"
+  stream_transform:
+    dependency: transitive
+    description:
+      name: stream_transform
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.2.0"
   string_scanner:
     dependency: transitive
     description:
@@ -877,4 +877,4 @@ packages:
     version: "4.5.1"
 sdks:
   dart: ">=2.10.0-110 <2.11.0"
-  flutter: ">1.21.0 <2.0.0"
+  flutter: ">=1.22.0 <2.0.0"

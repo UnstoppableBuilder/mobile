@@ -47,7 +47,11 @@
 	<false/>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Для отслеживания перемещений оп рабочей площадке</string>
-	<key>NSLocationAlwaysUsageDescription</key>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Для отслеживания перемещений оп рабочей площадке</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Для отслеживания перемещений оп рабочей площадке</string>
+	<key>NSLocationUsageDescription</key>
 	<string>Для отслеживания перемещений оп рабочей площадке</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Камера используется для анализа освещенности</string>

@@ -6,6 +6,15 @@ import 'package:location/location.dart';
 import 'package:ub/views/screen/realtime_chart.dart';
 import 'package:ub/views/services/realtime_data_service.dart';
 import 'package:ub/views/services/service_locator.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+
+/* 
+HOW-TO
+Google Maps
+https://levelup.gitconnected.com/how-to-add-google-maps-in-a-flutter-app-and-get-the-current-location-of-the-user-dynamically-2172f0be53f6
+
+
+*/
 
 class Stats extends StatefulWidget {
   @override
@@ -13,10 +22,12 @@ class Stats extends StatefulWidget {
 }
 
 class _StatsState extends State<Stats> {
-  bool _isRecording = false;
+  bool _isRecording = true;
   StreamSubscription<NoiseReading> _noiseSubscription;
   NoiseMeter _noiseMeter = new NoiseMeter();
   Location _location = new Location();
+  LatLng _initialcameraposition = LatLng(20.5937, 78.9629);
+  GoogleMapController _controller;
 
   /* sensors part */
   List<double> _accelerometerValues;
@@ -28,13 +39,7 @@ class _StatsState extends State<Stats> {
   String _noiseInfo;
   double _noiseValue;
   double _noiseMax;
-
-  DataList _acceleratorData = DataList();
-  DataList _userAcceleratorData = DataList();
-  DataList _gyroscopeData = DataList();
-  DataList _gpsData = DataList();
-  DataList _noiseData = DataList();
-  DataList _noiseMaxData = DataList();
+  LocationData _currentLocation;
 
   @override
   void initState() {
@@ -56,21 +61,19 @@ class _StatsState extends State<Stats> {
         _userAccelerometerValues = <double>[event.x, event.y, event.z];
       });
     }));
-    _location.onLocationChanged.listen((LocationData currentLocation) {
-      // Use current location
+    _streamSubscriptions.add(_noiseMeter.noiseStream.listen(onData));
+
+    _getLocation().then((_) {
+      _streamSubscriptions.add(
+          _location.onLocationChanged.listen((LocationData currentLocation) {
+        setState(() {
+          _currentLocation = currentLocation;
+        });
+      }));
     });
   }
 
   RealtimeDataService _dataService = locator<RealtimeDataService>();
-
-  void _togglePulsar() {
-    if (_dataService.isRunning) {
-      _dataService.stop();
-    } else {
-      _dataService.start();
-    }
-    setState(() {});
-  }
 
   void onData(NoiseReading noiseReading) {
     this.setState(() {
@@ -84,14 +87,6 @@ class _StatsState extends State<Stats> {
     //print(noiseReading.toString());
   }
 
-  void start() async {
-    try {
-      _noiseSubscription = _noiseMeter.noiseStream.listen(onData);
-    } catch (err) {
-      print(err);
-    }
-  }
-
   @override
   void dispose() {
     super.dispose();
@@ -100,32 +95,6 @@ class _StatsState extends State<Stats> {
     }
     super.dispose();
   }
-
-  void stop() async {
-    try {
-      if (_noiseSubscription != null) {
-        _noiseSubscription.cancel();
-        _noiseSubscription = null;
-      }
-      this.setState(() {
-        this._isRecording = false;
-      });
-    } catch (err) {
-      print('stopRecorder error: $err');
-    }
-  }
-
-  List<Widget> getContent() => <Widget>[
-        Container(
-            margin: EdgeInsets.all(25),
-            child: Column(children: [
-              Container(
-                child: Text(_isRecording ? "Mic: ON" : "Mic: OFF",
-                    style: TextStyle(fontSize: 25, color: Colors.blue)),
-                margin: EdgeInsets.only(top: 20),
-              )
-            ])),
-      ];
 
   @override
   Widget build(BuildContext context) {
@@ -147,13 +116,6 @@ class _StatsState extends State<Stats> {
       return v.toStringAsFixed(1);
     })?.toList();
 
-    _noiseData.add((_noiseValue ?? 0) / 25);
-    _noiseMaxData.add((_noiseMax ?? 0) / 25);
-    _gpsData.add(0 ?? 0);
-    _acceleratorData.add(_accValue ?? 0);
-    _userAcceleratorData.add(_userAccValue ?? 0);
-    _gyroscopeData.add(100 * _gyrValue ?? 0);
-
     _dataService.add([
       _noiseValue ?? 0,
       _noiseMax ?? 0,
@@ -164,11 +126,33 @@ class _StatsState extends State<Stats> {
     ].toList());
 
     return Scaffold(
+        appBar: AppBar(
+            title: Text("Статистика"),
+            leading: IconButton(
+                icon: Icon(Icons.arrow_back),
+                onPressed: () => Navigator.pop(context))),
         backgroundColor: Colors.white,
         body: SingleChildScrollView(
             child:
                 Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          ...getContent(),
+          Container(
+              height: 200,
+              width: MediaQuery.of(context).size.width,
+              child: GoogleMap(
+                initialCameraPosition:
+                    CameraPosition(target: _initialcameraposition),
+                mapType: MapType.normal,
+                onMapCreated: _onMapCreated,
+                myLocationEnabled: true,
+              )),
+          if (_currentLocation != null)
+            Text(
+                "GPS long:${_currentLocation.longitude}\nlat:${_currentLocation.latitude}\nalt:${_currentLocation.altitude}\nacc:${_currentLocation.accuracy}"),
+          SizedBox(height: 20),
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.3,
+            child: Container(height: 150, child: RealtimeChart()),
+          ),
           Padding(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -205,40 +189,47 @@ class _StatsState extends State<Stats> {
             ),
             padding: const EdgeInsets.all(16.0),
           ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.3,
-            child: Container(height: 150, child: RealtimeChart()),
-          ),
-          FloatingActionButton(
-              backgroundColor: _isRecording ? Colors.red : Colors.green,
-              onPressed: _isRecording ? stop : start,
-              child: _isRecording ? Icon(Icons.stop) : Icon(Icons.mic)),
         ])));
   }
 
   Future<LocationData> _getLocation() async {
-    bool _serviceEnabled;
-    PermissionStatus _permissionGranted;
-    LocationData _locationData;
+    try {
+      bool _serviceEnabled;
+      PermissionStatus _permissionGranted;
+      LocationData _locationData;
 
-    _serviceEnabled = await _location.serviceEnabled();
-    if (!_serviceEnabled) {
-      _serviceEnabled = await _location.requestService();
+      _permissionGranted = await _location.hasPermission();
+      if (_permissionGranted == PermissionStatus.denied) {
+        _permissionGranted = await _location.requestPermission();
+        if (_permissionGranted != PermissionStatus.granted) {
+          return null;
+        }
+      }
+
+      _serviceEnabled = await _location.serviceEnabled();
       if (!_serviceEnabled) {
-        return null;
+        _serviceEnabled = await _location.requestService();
+        if (!_serviceEnabled) {
+          return null;
+        }
       }
-    }
 
-    _permissionGranted = await _location.hasPermission();
-    if (_permissionGranted == PermissionStatus.denied) {
-      _permissionGranted = await _location.requestPermission();
-      if (_permissionGranted != PermissionStatus.granted) {
-        return null;
-      }
+      _locationData = await _location.getLocation();
+      return _locationData;
+    } catch (e) {
+      print(e);
     }
+  }
 
-    _locationData = await _location.getLocation();
-    return _locationData;
+  void _onMapCreated(GoogleMapController _cntlr) {
+    _controller = _cntlr;
+    _location.onLocationChanged.listen((l) {
+      _controller.animateCamera(
+        CameraUpdate.newCameraPosition(
+          CameraPosition(target: LatLng(l.latitude, l.longitude), zoom: 15),
+        ),
+      );
+    });
   }
 }
 

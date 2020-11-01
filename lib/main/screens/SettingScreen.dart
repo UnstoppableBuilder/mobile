@@ -38,20 +38,11 @@ class SettingScreenState extends State<SettingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Settings', style: boldTextStyle(size: 22)),
-        backgroundColor: appStore.appBarColor,
-        leading: BackButton(
-          color: appStore.textPrimaryColor,
-          onPressed: () {
-            finish(context);
-          },
-        ),
-      ),
       body: Stack(
         children: [
           Column(
             children: [
+              SizedBox(height: 60),
               settingItem(
                 context,
                 "Пользовательское соглашение",
