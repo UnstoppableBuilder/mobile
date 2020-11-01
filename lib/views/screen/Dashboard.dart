@@ -7,6 +7,7 @@ import 'package:ub/main/screens/SettingScreen.dart';
 import 'package:ub/main/utils/AppWidget.dart';
 import 'package:ub/views/screen/Listing.dart';
 import 'package:ub/views/screen/Profile.dart';
+import 'package:ub/views/screen/Stats.dart';
 import 'package:ub/views/utils/Colors.dart';
 import 'package:ub/views/utils/Constant.dart';
 import 'package:ub/views/utils/Images.dart';
@@ -107,9 +108,13 @@ class DashboardState extends State<Dashboard> {
                       width: 55,
                       child: FloatingActionButton(
                         backgroundColor: t1_colorPrimary,
-                        onPressed: () {},
+                        onPressed: () {
+                          //TODO
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) => Stats()));
+                        },
                         child: Icon(
-                          Icons.mic,
+                          Icons.trending_up,
                           color: t1_white,
                         ),
                       ),

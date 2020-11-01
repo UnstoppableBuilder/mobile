@@ -6,6 +6,7 @@ import 'package:ub/main/store/AppStore.dart';
 import 'package:ub/main/utils/AppTheme.dart';
 import 'package:ub/views/screen/Sidemenu.dart';
 import 'package:ub/views/screen/WalkThrough.dart';
+import 'package:ub/views/services/service_locator.dart';
 
 import 'main/utils/AppConstant.dart';
 import 'main/utils/AppWidget.dart';
@@ -18,7 +19,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   appStore.toggleDarkMode(value: await getBool(isDarkModeOnPref));
-
+  setupServiceLocator();
   runApp(MyApp());
 }
 
