@@ -5,6 +5,7 @@ import 'package:nb_utils/nb_utils.dart';
 import 'package:ub/main/store/AppStore.dart';
 import 'package:ub/main/utils/AppTheme.dart';
 import 'package:ub/views/screen/Sidemenu.dart';
+import 'package:ub/views/screen/Stats.dart';
 import 'package:ub/views/screen/WalkThrough.dart';
 
 import 'main/utils/AppConstant.dart';
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
         supportedLocales: [Locale('en', '')],
         //routes: routes(),
         title: '$mainAppName${!isMobile ? ' ${platformName()}' : ''}',
-        home: WalkThrough(),
+        home: Stats(),
         theme: !appStore.isDarkModeOn
             ? AppThemeData.lightTheme
             : AppThemeData.darkTheme,
