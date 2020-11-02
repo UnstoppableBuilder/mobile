@@ -53,10 +53,10 @@ class Profile extends StatelessWidget {
                 textColor: t1_colorPrimary,
                 fontSize: textSizeMedium,
                 fontFamily: fontMedium),
-            // Padding(
-            //   padding: EdgeInsets.all(16),
-            //   child: Divider(color: t1_view_color, height: 0.5),
-            // ),
+            Padding(
+              padding: EdgeInsets.all(16),
+              child: Divider(color: t1_view_color, height: 0.5),
+            ),
             // Row(
             //   mainAxisAlignment: MainAxisAlignment.spaceAround,
             //   children: <Widget>[
@@ -113,7 +113,9 @@ class Profile extends StatelessWidget {
                           child: view(),
                         ),
                         SizedBox(height: 8),
-                        profileText(t1_profile_address, maxline: 2),
+                        profileText(
+                            "Санкт-Петербург, Митрофаньевское\nшоссе, 2к2",
+                            maxline: 2),
                         SizedBox(height: 16),
                       ],
                     ),
@@ -133,13 +135,13 @@ class Profile extends StatelessWidget {
                         SizedBox(height: 8),
                         rowHeading(t1_lbl_contacts),
                         SizedBox(height: 16),
-                        profileText("+91 36982145"),
+                        profileText("+7(999)219-69-60"),
                         Padding(
                           padding: EdgeInsets.fromLTRB(16, 10, 16, 10),
                           child: view(),
                         ),
                         SizedBox(height: 8),
-                        profileText("Astoncina@gmail.com"),
+                        profileText("da@solution-now.ru"),
                         SizedBox(height: 8),
                       ],
                     ),
