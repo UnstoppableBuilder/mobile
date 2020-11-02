@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:ub/data/data_provider.dart';
 import 'package:ub/main/screens/SettingScreen.dart';
 import 'package:ub/main/utils/AppWidget.dart';
 import 'package:ub/main/utils/like_button/utils/like_button_model.dart';
@@ -205,56 +206,45 @@ class DashboardState extends State<Dashboard> {
         //         ),
         //         SizedBox(height: 24),
 
-        //         //Send Files block
-        //         if (false) ...[
-        //           text(t1_lbl_send_file,
-        //               textColor: appStore.textPrimaryColor,
-        //               fontSize: textSizeNormal,
-        //               fontFamily: fontBold),
-        //           SizedBox(height: 16),
-        //           Container(
-        //             alignment: Alignment.center,
-        //             color: appStore.scaffoldBackground,
-        //             child: Stack(
-        //               children: <Widget>[
-        //                 Image.asset(t1_ic_home_image,
-        //                     width: width / 2, height: width / 2.7),
-        //                 Container(
-        //                   decoration: BoxDecoration(
-        //                       shape: BoxShape.circle,
-        //                       color: t1_color_primary_light),
-        //                   width: width / 3.5,
-        //                   height: width / 3.5,
-        //                   alignment: Alignment.center,
-        //                   margin: EdgeInsets.only(left: width / 30),
-        //                   padding: EdgeInsets.all(width / 18),
-        //                   child: text(t1_lbl_send_files,
-        //                       textColor: t1_colorPrimary,
-        //                       fontSize: textSizeNormal,
-        //                       maxLine: 2),
-        //                 )
-        //               ],
-        //             ),
-        //           )
-        //         ]
-        //       ],
-        //     )),
-        Container(
-            height: 250,
-            width: 250,
-            child: FloatingActionButton(
-                heroTag: "test",
-                backgroundColor: Color.fromRGBO(255, 90, 114, 1),
-                child: Text('SOS',
-                    style: TextStyle(
-                        fontFamily: 'Roboto',
-                        color: Colors.white,
-                        fontSize: 50,
-                        fontWeight: FontWeight.bold)),
-                onPressed: () {})),
-        SizedBox(
-          height: height * 0.1,
-        ),
+                  //Send Files block
+                  if (false) ...[
+                    text(t1_lbl_send_file,
+                        textColor: appStore.textPrimaryColor,
+                        fontSize: textSizeNormal,
+                        fontFamily: fontBold),
+                    SizedBox(height: 16),
+                    Container(
+                      alignment: Alignment.center,
+                      color: appStore.scaffoldBackground,
+                      child: Stack(
+                        children: <Widget>[
+                          Image.asset(t1_ic_home_image,
+                              width: width / 2, height: width / 2.7),
+                          Container(
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: t1_color_primary_light),
+                            width: width / 3.5,
+                            height: width / 3.5,
+                            alignment: Alignment.center,
+                            margin: EdgeInsets.only(left: width / 30),
+                            padding: EdgeInsets.all(width / 18),
+                            child: text(t1_lbl_send_files,
+                                textColor: t1_colorPrimary,
+                                fontSize: textSizeNormal,
+                                maxLine: 2),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                  sosButton(
+                      sessionId: 1,
+                      description: "Случилось происшествие",
+                      createdAt: 1609272255,
+                      accessToken: '6283622ee33cec3887133d00f3e198ff58e39ce3')
+                ],
+              )),
         SizedBox(height: 8),
         Padding(
             padding: EdgeInsets.fromLTRB(40, 16, 40, 16),
@@ -262,11 +252,11 @@ class DashboardState extends State<Dashboard> {
                 "Начать смену",
                 () => Navigator.push(context,
                     MaterialPageRoute(builder: (context) => Dashboard())))),
-        SizedBox(
-          height: 130,
-        )
-      ],
-      //),
+          SizedBox(
+            height: height * 0.1,
+          )
+        ],
+      ),
     );
   }
 
@@ -295,6 +285,36 @@ class DashboardState extends State<Dashboard> {
       mainAxisAlignment: MainAxisAlignment.center,
     );
   }
+}
+
+Widget sosButton({
+  String accessToken,
+  int sessionId,
+  String description,
+  int createdAt,
+}) {
+  return Center(
+    child: Container(
+      height: 200,
+      width: 200,
+      child: FloatingActionButton(
+        heroTag: 'sosButton',
+        backgroundColor: Color.fromRGBO(255, 90, 114, 1),
+        child: Text('Sos',
+            style: TextStyle(
+                fontFamily: 'Roboto',
+                fontSize: 50,
+                fontWeight: FontWeight.bold)),
+        onPressed: () {
+          DataProvider().sos(
+              sessionId: sessionId,
+              createdAt: createdAt,
+              description: description,
+              accessToken: accessToken);
+        },
+      ),
+    ),
+  );
 }
 
 class Slider extends StatelessWidget {
