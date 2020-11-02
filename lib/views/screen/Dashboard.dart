@@ -5,6 +5,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ub/main/screens/SettingScreen.dart';
 import 'package:ub/main/utils/AppWidget.dart';
+import 'package:ub/main/utils/like_button/utils/like_button_model.dart';
 import 'package:ub/views/screen/Listing.dart';
 import 'package:ub/views/screen/Profile.dart';
 import 'package:ub/views/screen/Stats.dart';
@@ -155,90 +156,117 @@ class DashboardState extends State<Dashboard> {
   }
 
   Widget HomeWidget(BuildContext context) {
-    return SingleChildScrollView(
-      padding: EdgeInsets.only(top: 80),
-      physics: ScrollPhysics(),
-      child: Column(
-        children: <Widget>[
-          16.height,
-          //image slider
-          Container(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.width * 0.55,
-            color: appStore.scaffoldBackground,
-            child: PageView(
-              children: <Widget>[
-                Slider(file: t1_slider1),
-                Slider(file: t1_slider2),
-                Slider(file: t1_slider3),
-              ],
-            ),
-          ),
-          //Media
-          Container(
-              padding: EdgeInsets.all(20),
-              color: appStore.scaffoldBackground,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  text(t1_lbl_media,
-                      textColor: appStore.textPrimaryColor,
-                      fontSize: textSizeNormal,
-                      fontFamily: fontBold),
-                  SizedBox(height: 10),
-                  Padding(
-                    padding: EdgeInsets.only(left: 10.0, right: 10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        mediaButton(t1_lbl_document, t1_file),
-                        mediaButton(t1_lbl_video, t1_video),
-                        mediaButton(t1_lbl_photos, t1_images)
-                      ],
-                    ),
-                  ),
-                  SizedBox(height: 24),
+    return
+        //Container(
+        //padding: EdgeInsets.only(top: 80),
+        //color: Colors.white,
+        //physics: ScrollPhysics(),
+        //child:
+        Column(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: <Widget>[
+        16.height,
+        //image slider
+        // Container(
+        //   width: MediaQuery.of(context).size.width,
+        //   height: MediaQuery.of(context).size.width * 0.55,
+        //   color: appStore.scaffoldBackground,
+        //   child: PageView(
+        //     children: <Widget>[
+        //       Slider(file: t1_slider1),
+        //       Slider(file: t1_slider2),
+        //       Slider(file: t1_slider3),
+        //     ],
+        //   ),
+        // ),
+        //Media
+        // Container(
+        //     padding: EdgeInsets.all(20),
+        //     color: appStore.scaffoldBackground,
+        //     child: Column(
+        //       crossAxisAlignment: CrossAxisAlignment.start,
+        //       mainAxisAlignment: MainAxisAlignment.start,
+        //       children: <Widget>[
+        //         text(t1_lbl_media,
+        //             textColor: appStore.textPrimaryColor,
+        //             fontSize: textSizeNormal,
+        //             fontFamily: fontBold),
+        //         SizedBox(height: 10),
+        //         Padding(
+        //           padding: EdgeInsets.only(left: 10.0, right: 10),
+        //           child: Row(
+        //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        //             children: <Widget>[
+        //               mediaButton(t1_lbl_document, t1_file),
+        //               mediaButton(t1_lbl_video, t1_video),
+        //               mediaButton(t1_lbl_photos, t1_images)
+        //             ],
+        //           ),
+        //         ),
+        //         SizedBox(height: 24),
 
-                  //Send Files block
-                  if (false) ...[
-                    text(t1_lbl_send_file,
-                        textColor: appStore.textPrimaryColor,
-                        fontSize: textSizeNormal,
-                        fontFamily: fontBold),
-                    SizedBox(height: 16),
-                    Container(
-                      alignment: Alignment.center,
-                      color: appStore.scaffoldBackground,
-                      child: Stack(
-                        children: <Widget>[
-                          Image.asset(t1_ic_home_image,
-                              width: width / 2, height: width / 2.7),
-                          Container(
-                            decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: t1_color_primary_light),
-                            width: width / 3.5,
-                            height: width / 3.5,
-                            alignment: Alignment.center,
-                            margin: EdgeInsets.only(left: width / 30),
-                            padding: EdgeInsets.all(width / 18),
-                            child: text(t1_lbl_send_files,
-                                textColor: t1_colorPrimary,
-                                fontSize: textSizeNormal,
-                                maxLine: 2),
-                          )
-                        ],
-                      ),
-                    )
-                  ]
-                ],
-              )),
-          SizedBox(
-            height: height * 0.1,
-          )
-        ],
-      ),
+        //         //Send Files block
+        //         if (false) ...[
+        //           text(t1_lbl_send_file,
+        //               textColor: appStore.textPrimaryColor,
+        //               fontSize: textSizeNormal,
+        //               fontFamily: fontBold),
+        //           SizedBox(height: 16),
+        //           Container(
+        //             alignment: Alignment.center,
+        //             color: appStore.scaffoldBackground,
+        //             child: Stack(
+        //               children: <Widget>[
+        //                 Image.asset(t1_ic_home_image,
+        //                     width: width / 2, height: width / 2.7),
+        //                 Container(
+        //                   decoration: BoxDecoration(
+        //                       shape: BoxShape.circle,
+        //                       color: t1_color_primary_light),
+        //                   width: width / 3.5,
+        //                   height: width / 3.5,
+        //                   alignment: Alignment.center,
+        //                   margin: EdgeInsets.only(left: width / 30),
+        //                   padding: EdgeInsets.all(width / 18),
+        //                   child: text(t1_lbl_send_files,
+        //                       textColor: t1_colorPrimary,
+        //                       fontSize: textSizeNormal,
+        //                       maxLine: 2),
+        //                 )
+        //               ],
+        //             ),
+        //           )
+        //         ]
+        //       ],
+        //     )),
+        Container(
+            height: 250,
+            width: 250,
+            child: FloatingActionButton(
+                heroTag: "test",
+                backgroundColor: Color.fromRGBO(255, 90, 114, 1),
+                child: Text('SOS',
+                    style: TextStyle(
+                        fontFamily: 'Roboto',
+                        color: Colors.white,
+                        fontSize: 50,
+                        fontWeight: FontWeight.bold)),
+                onPressed: () {})),
+        SizedBox(
+          height: height * 0.1,
+        ),
+        SizedBox(height: 8),
+        Padding(
+            padding: EdgeInsets.fromLTRB(40, 16, 40, 16),
+            child: shadowButton(
+                "Начать смену",
+                () => Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Dashboard())))),
+        SizedBox(
+          height: 130,
+        )
+      ],
+      //),
     );
   }
 

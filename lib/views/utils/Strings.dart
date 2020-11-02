@@ -58,7 +58,7 @@ const t1_lbl_settings = "Настройки";
 const t1_lbl_sign_out = "Выход";
 const t1_lbl_share_and_invite = "Поделиться и пригласить";
 const t1_lbl_help_and_feedback = "Помощь и обратная связь";
-const t1_user_email = "johnvilla@gmail.com";
+const t1_user_email = "da@solution-now.ru";
 const t1_user_name = "Андрей Дершевич";
 const t1_samplelong_text =
     "Lorem Ipsum is simply dummy text of the printing and typesetting industry.simply duumy text ";

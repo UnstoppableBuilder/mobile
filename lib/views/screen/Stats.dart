@@ -28,6 +28,10 @@ class _StatsState extends State<Stats> {
   Location _location = new Location();
   LatLng _initialcameraposition = LatLng(20.5937, 78.9629);
   GoogleMapController _controller;
+  String _activityType = "";
+  DateTime _lastChange;
+  double _lastGPS;
+  double _lastNoise;
 
   /* sensors part */
   List<double> _accelerometerValues;
@@ -102,6 +106,8 @@ class _StatsState extends State<Stats> {
     double _userAccValue = 0;
     double _gyrValue = 0;
 
+    int _floor = 0;
+
     final List<String> accelerometer = _accelerometerValues?.map((double v) {
       _accValue += v;
       return v.toStringAsFixed(1);
@@ -116,10 +122,46 @@ class _StatsState extends State<Stats> {
       return v.toStringAsFixed(1);
     })?.toList();
 
+    double _currentGPS = 0;
+    if (_currentLocation != null) {
+      _floor = (_currentLocation.altitude / 3).ceil();
+      _currentGPS = _currentLocation.altitude +
+          _currentLocation.latitude +
+          _currentLocation.longitude;
+    }
+    _noiseValue = _noiseValue ?? 0;
+    if ((_activityType == "Дрель" ||
+            _activityType == "Отдых" ||
+            _activityType == "") ||
+        (_activityType == "Молоток" &&
+            DateTime.now().millisecondsSinceEpoch >
+                _lastChange.millisecondsSinceEpoch + 3000) ||
+        (_activityType == "Перемещение" &&
+            DateTime.now().millisecondsSinceEpoch >
+                _lastChange.millisecondsSinceEpoch + 5000)) if (_noiseValue >
+            79 &&
+        _gyrValue.abs() > 0.1 &&
+        _userAccValue.abs() > 1.0) {
+      _activityType = "Молоток";
+      _lastChange = DateTime.now();
+    } else if (_noiseValue > 65) {
+      _activityType = "Дрель";
+      _lastChange = DateTime.now();
+    } else if ((_userAccValue > 1.0) ||
+        (_currentGPS - (_lastGPS ?? 0)).abs() >= 1.0) {
+      print((_currentGPS - (_lastGPS ?? 0)).abs());
+      _activityType = "Перемещение";
+      _lastGPS = _currentGPS;
+      _lastChange = DateTime.now();
+    } else {
+      _activityType = "Отдых";
+      _lastChange = DateTime.now();
+    }
+
     _dataService.add([
       _noiseValue ?? 0,
       _noiseMax ?? 0,
-      0.0 ?? 0,
+      _currentGPS ?? 0,
       _accValue ?? 0,
       _userAccValue ?? 0,
       100 * _gyrValue ?? 0
@@ -135,6 +177,10 @@ class _StatsState extends State<Stats> {
         body: SingleChildScrollView(
             child:
                 Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+          const SizedBox(height: 30),
+          Text("Активность: $_activityType\nЭтаж: $_floor",
+              style: TextStyle(fontSize: 44)),
+          const SizedBox(height: 10),
           Container(
               height: 200,
               width: MediaQuery.of(context).size.width,
@@ -166,7 +212,7 @@ class _StatsState extends State<Stats> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                Text('Accelerometer: $accelerometer'),
+                Text('Accelerometer: $accelerometer = $_accValue'),
               ],
             ),
             padding: const EdgeInsets.all(16.0),
@@ -175,7 +221,8 @@ class _StatsState extends State<Stats> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                Text('UserAccelerometer: $userAccelerometer'),
+                Text(
+                    'UserAccelerometer: $userAccelerometer = ${_userAccValue.toStringAsFixed(2)}'),
               ],
             ),
             padding: const EdgeInsets.all(16.0),
@@ -184,7 +231,7 @@ class _StatsState extends State<Stats> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                Text('Gyroscope: $gyroscope'),
+                Text('Gyroscope: $gyroscope = $_gyrValue'),
               ],
             ),
             padding: const EdgeInsets.all(16.0),

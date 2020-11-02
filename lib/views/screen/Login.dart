@@ -47,7 +47,7 @@ class _LoginState extends State<Login> {
                           onTap: () => Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => SideMenu())),
+                                  builder: (context) => Signup())),
                           child: formSubHeadingForm(t1_lbl_sign_up)),
                     ],
                   ),
@@ -79,7 +79,7 @@ class _LoginState extends State<Login> {
                           () => Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => Dashboard())))),
+                                  builder: (context) => SideMenu())))),
                   SizedBox(height: 24),
                   text(t1_lbl_forgot_password,
                       textColor: appStore.textPrimaryColor,

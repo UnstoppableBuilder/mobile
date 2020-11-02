@@ -89,7 +89,7 @@ class IntroScreenState extends State<IntroScreen> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const SizedBox(
-                  height: 35,
+                  height: 60,
                 ),
                 Row(
                   children: [

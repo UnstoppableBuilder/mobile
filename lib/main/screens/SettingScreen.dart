@@ -42,7 +42,7 @@ class SettingScreenState extends State<SettingScreen> {
         children: [
           Column(
             children: [
-              SizedBox(height: 60),
+              SizedBox(height: 80),
               settingItem(
                 context,
                 "Пользовательское соглашение",
